@@ -16,7 +16,7 @@ class NotABeaconScanner: NSObject, CBCentralManagerDelegate {
 
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if central.state == .poweredOn {
-            centralManager.scanForPeripherals(withServices: [CBUUID(string: "4c052726-cd97-4dde-9356-212cc1327a84")])
+            centralManager?.scanForPeripherals(withServices: [CBUUID(string: "4c052726-cd97-4dde-9356-212cc1327a84")], options: [CBCentralManagerScanOptionAllowDuplicatesKey: true])
         }
     }
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
